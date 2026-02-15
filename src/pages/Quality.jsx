@@ -413,7 +413,7 @@ export default function Quality() {
                 {/* Decorative Elements */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-emerald-200/30 to-transparent rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-amber-200/20 to-transparent rounded-full blur-3xl" />
-                <div className="container-custom">
+                <div className="container mx-auto px-4 relative z-10">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}

@@ -430,7 +430,7 @@ export default function Contact() {
 
                             {/* Contact Cards */}
                             <div className="space-y-6">
-                                <div className="bg-white rounded-2xl p-6 shadow-lg border border-emerald-100 group hover:shadow-xl transition-all duration-300">
+                                <div className="bg-white rounded-2xl p-6 shadow-lg border border-emerald-100 group hover:shadow-xl transition-all duration-300 relative overflow-hidden">
                                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
                                     <div className="flex items-start relative z-10">
                                         <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">

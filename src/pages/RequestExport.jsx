@@ -526,7 +526,7 @@ ${formData.message}
                                             desc: 'Finalize terms and begin your successful partnership'
                                         }
                                     ].map((step) => (
-                                        <div key={step.step} className="flex items-start bg-white rounded-2xl p-4 shadow-lg border border-emerald-100 group hover:shadow-xl transition-all duration-300">
+                                        <div key={step.step} className="flex items-start bg-white rounded-2xl p-4 shadow-lg border border-emerald-100 group hover:shadow-xl transition-all duration-300 relative overflow-hidden">
                                             <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
                                             <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 relative z-10">
                                                 {step.step}
