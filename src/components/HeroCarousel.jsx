@@ -34,7 +34,7 @@ export default function HeroCarousel() {
                 { icon: '♻️', text: 'Sustainable' }
             ],
             accentColor: 'from-emerald-600 to-green-500',
-            overlayColor: 'from-emerald-900/80 via-green-900/60 to-emerald-900/80'
+            overlayColor: 'from-emerald-900/60 via-green-900/50 to-emerald-900/60'
         },
         {
             id: 2,
@@ -53,7 +53,7 @@ export default function HeroCarousel() {
                 { icon: '📜', text: 'HACCP' }
             ],
             accentColor: 'from-amber-600 to-yellow-500',
-            overlayColor: 'from-amber-900/80 via-yellow-900/60 to-amber-900/80'
+            overlayColor: 'from-amber-900/60 via-yellow-900/50 to-amber-900/60'
         },
         {
             id: 3,
@@ -72,7 +72,7 @@ export default function HeroCarousel() {
                 { icon: '📄', text: 'Full Documentation' }
             ],
             accentColor: 'from-teal-600 to-cyan-500',
-            overlayColor: 'from-teal-900/80 via-cyan-900/60 to-teal-900/80'
+            overlayColor: 'from-teal-900/60 via-cyan-900/50 to-teal-900/60'
         },
         {
             id: 4,
@@ -90,8 +90,8 @@ export default function HeroCarousel() {
                 { icon: '🧪', text: 'R&D Support' },
                 { icon: '📦', text: 'Low MOQ' }
             ],
-            accentColor: 'from-purple-600 to-violet-500',
-            overlayColor: 'from-purple-900/80 via-violet-900/60 to-purple-900/80'
+            accentColor: 'from-amber-500 to-orange-500',
+            overlayColor: 'from-amber-900/60 via-orange-900/50 to-amber-900/60'
         }
     ]
 
@@ -124,9 +124,9 @@ export default function HeroCarousel() {
                 modules={[Autoplay, Pagination, Navigation, EffectFade, Parallax]}
                 effect="fade"
                 parallax={true}
-                speed={1500}
+                speed={1800}
                 autoplay={{
-                    delay: 6000,
+                    delay: 7000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true
                 }}
@@ -142,7 +142,7 @@ export default function HeroCarousel() {
                 {slides.map((slide, index) => (
                     <SwiperSlide key={slide.id}>
                         {({ isActive }) => (
-                            <div className="relative h-full flex items-center justify-center overflow-hidden">
+                            <div className="relative h-full flex items-center justify-center overflow-hidden pt-20 md:pt-24">
                                 {/* Animated Background with Ken Burns */}
                                 <motion.div
                                     initial={{ scale: 1.1 }}
@@ -158,11 +158,11 @@ export default function HeroCarousel() {
 
                                 {/* Natural Gradient Overlays */}
                                 <div className={`absolute inset-0 bg-gradient-to-br ${slide.overlayColor}`} />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
 
                                 {/* Botanical Pattern Overlay */}
                                 <div
-                                    className="absolute inset-0 opacity-5"
+                                    className="absolute inset-0 opacity-[0.03]"
                                     style={{
                                         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 Q35 15 30 25 Q25 15 30 5' fill='none' stroke='white' stroke-width='0.5'/%3E%3Cpath d='M30 35 Q35 45 30 55 Q25 45 30 35' fill='none' stroke='white' stroke-width='0.5'/%3E%3Ccircle cx='30' cy='30' r='3' fill='none' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E")`,
                                         backgroundSize: '60px 60px'
@@ -173,27 +173,29 @@ export default function HeroCarousel() {
                                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                                     <motion.div
                                         animate={{
-                                            x: [0, 50, 0],
-                                            y: [0, -30, 0],
-                                            opacity: [0.3, 0.5, 0.3]
+                                            x: [0, 60, 0],
+                                            y: [0, -40, 0],
+                                            scale: [1, 1.2, 1],
+                                            opacity: [0.2, 0.35, 0.2]
                                         }}
-                                        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                                        className={`absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-r ${slide.accentColor} rounded-full blur-[120px] opacity-40`}
+                                        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+                                        className={`absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-r ${slide.accentColor} rounded-full blur-[120px] opacity-25`}
                                     />
                                     <motion.div
                                         animate={{
-                                            x: [0, -40, 0],
-                                            y: [0, 40, 0],
-                                            opacity: [0.2, 0.4, 0.2]
+                                            x: [0, -50, 0],
+                                            y: [0, 50, 0],
+                                            scale: [1, 1.15, 1],
+                                            opacity: [0.15, 0.3, 0.15]
                                         }}
-                                        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                                        className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-green-500/30 rounded-full blur-[150px]"
+                                        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+                                        className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-green-500/20 rounded-full blur-[150px]"
                                     />
                                     {/* Central glow */}
                                     <motion.div
-                                        animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
-                                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-400/20 rounded-full blur-[180px]"
+                                        animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.2, 0.1] }}
+                                        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-400/15 rounded-full blur-[180px]"
                                     />
                                 </div>
 
@@ -228,7 +230,7 @@ export default function HeroCarousel() {
                                 </div>
 
                                 {/* Decorative Leaf Corner Elements */}
-                                <div className="absolute top-0 left-0 w-64 h-64 pointer-events-none opacity-20">
+                                <div className="absolute top-0 left-0 w-64 h-64 pointer-events-none opacity-10">
                                     <svg viewBox="0 0 200 200" className="w-full h-full">
                                         <path
                                             d="M 0 100 Q 30 70 60 50 Q 80 35 100 0"
@@ -250,7 +252,7 @@ export default function HeroCarousel() {
                                         </defs>
                                     </svg>
                                 </div>
-                                <div className="absolute bottom-0 right-0 w-64 h-64 pointer-events-none opacity-20 rotate-180">
+                                <div className="absolute bottom-0 right-0 w-64 h-64 pointer-events-none opacity-10 rotate-180">
                                     <svg viewBox="0 0 200 200" className="w-full h-full">
                                         <path
                                             d="M 0 100 Q 30 70 60 50 Q 80 35 100 0"
@@ -288,7 +290,7 @@ export default function HeroCarousel() {
                                                                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                                                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                                                 exit={{ opacity: 0, y: -20 }}
-                                                                transition={{ duration: 0.6, delay: 0.1 }}
+                                                                transition={{ duration: 0.7, delay: 0.1, type: "spring", stiffness: 100 }}
                                                                 className="mb-6"
                                                             >
                                                                 <span className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full text-white text-sm font-medium shadow-xl">
@@ -319,8 +321,10 @@ export default function HeroCarousel() {
                                                                         animate={{ opacity: 1, y: 0, rotateX: 0 }}
                                                                         transition={{
                                                                             delay: 0.3 + i * 0.08,
-                                                                            duration: 0.6,
-                                                                            ease: [0.215, 0.61, 0.355, 1]
+                                                                            duration: 0.7,
+                                                                            type: "spring",
+                                                                            stiffness: 80,
+                                                                            damping: 12
                                                                         }}
                                                                         className="inline-block mr-[0.25em]"
                                                                     >
@@ -335,7 +339,7 @@ export default function HeroCarousel() {
                                                             <motion.div
                                                                 initial={{ scaleX: 0, opacity: 0 }}
                                                                 animate={{ scaleX: 1, opacity: 1 }}
-                                                                transition={{ duration: 0.8, delay: 0.6 }}
+                                                                transition={{ duration: 1, delay: 0.6, type: "spring", stiffness: 60 }}
                                                                 className="flex items-center gap-3 mb-6 justify-center lg:justify-start"
                                                             >
                                                                 <div className={`h-1 w-16 bg-gradient-to-r ${slide.accentColor} rounded-full`} />
@@ -408,8 +412,8 @@ export default function HeroCarousel() {
                                                                         <Link
                                                                             to={button.link}
                                                                             className={`group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-500 overflow-hidden ${button.primary
-                                                                                    ? `bg-gradient-to-r ${slide.accentColor} text-white shadow-2xl shadow-emerald-500/30 hover:shadow-emerald-500/50`
-                                                                                    : 'bg-white/10 backdrop-blur-xl border-2 border-white/30 text-white hover:bg-white hover:text-emerald-800'
+                                                                                ? `bg-gradient-to-r ${slide.accentColor} text-white shadow-2xl shadow-emerald-500/30 hover:shadow-emerald-500/50`
+                                                                                : 'bg-white/10 backdrop-blur-xl border-2 border-white/30 text-white hover:bg-white hover:text-emerald-800'
                                                                                 }`}
                                                                         >
                                                                             {/* Shimmer Effect */}
@@ -578,76 +582,6 @@ export default function HeroCarousel() {
                 ))}
             </Swiper>
 
-            {/* Custom Bottom Navigation */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
-                <div className="flex items-center gap-4 px-6 py-4 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full shadow-2xl">
-                    {/* Previous Button */}
-                    <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="hero-prev w-12 h-12 rounded-full bg-white/10 hover:bg-emerald-500 flex items-center justify-center text-white transition-all duration-300"
-                    >
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </motion.button>
-
-                    {/* Progress Indicators */}
-                    <div className="flex items-center gap-3">
-                        {slides.map((slide, index) => (
-                            <div key={index} className="relative group">
-                                {/* Slide Thumbnail Preview on Hover */}
-                                <div className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-40 rounded-xl overflow-hidden opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:-translate-y-2 pointer-events-none ${index === activeIndex ? '' : ''}`}>
-                                    <div className="relative">
-                                        <img
-                                            src={slide.bgImage}
-                                            alt={slide.title}
-                                            className="w-full h-24 object-cover"
-                                        />
-                                        <div className="absolute inset-0 bg-black/50" />
-                                        <p className="absolute bottom-2 left-2 right-2 text-white text-xs font-medium truncate">
-                                            {slide.title}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* Progress Bar */}
-                                <div
-                                    className={`w-12 h-1.5 rounded-full overflow-hidden transition-all duration-300 cursor-pointer ${index === activeIndex ? 'bg-white/30' : 'bg-white/10 hover:bg-white/20'
-                                        }`}
-                                >
-                                    {index === activeIndex && (
-                                        <motion.div
-                                            className={`h-full bg-gradient-to-r ${slides[activeIndex].accentColor} rounded-full`}
-                                            initial={{ width: '0%' }}
-                                            animate={{ width: `${progress}%` }}
-                                            transition={{ duration: 0.1 }}
-                                        />
-                                    )}
-                                </div>
-
-                                {/* Slide Number */}
-                                <span className={`absolute -top-6 left-1/2 -translate-x-1/2 text-xs font-bold transition-all duration-300 ${index === activeIndex ? 'text-white' : 'text-white/40'
-                                    }`}>
-                                    0{index + 1}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Next Button */}
-                    <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="hero-next w-12 h-12 rounded-full bg-white/10 hover:bg-emerald-500 flex items-center justify-center text-white transition-all duration-300"
-                    >
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                    </motion.button>
-                </div>
-            </div>
-
             {/* Scroll Indicator */}
             <motion.div
                 initial={{ opacity: 0 }}
@@ -672,7 +606,7 @@ export default function HeroCarousel() {
             </motion.div>
 
             {/* Slide Counter - Top Right */}
-            <div className="absolute top-32 right-8 z-20 hidden lg:block">
+            {/* <div className="absolute top-32 right-8 z-20 hidden lg:block">
                 <motion.div
                     key={activeIndex}
                     initial={{ opacity: 0, y: 20 }}
@@ -700,7 +634,7 @@ export default function HeroCarousel() {
                         {slides[activeIndex].badge.replace(/[^\w\s,]/g, '').trim()}
                     </motion.p>
                 </motion.div>
-            </div>
+            </div> */}
 
             {/* Social/Contact Sidebar - Left */}
             <div className="absolute left-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center gap-4">
@@ -734,7 +668,7 @@ export default function HeroCarousel() {
             </div>
 
             {/* Herbal Certification Badges - Bottom Left */}
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2 }}
@@ -749,7 +683,7 @@ export default function HeroCarousel() {
                         {cert}
                     </motion.div>
                 ))}
-            </motion.div>
+            </motion.div> */}
 
             <style jsx>{`
                 .hero-carousel {
